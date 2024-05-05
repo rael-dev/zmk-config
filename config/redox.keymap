@@ -291,17 +291,17 @@
 
         WASD {
             bindings = <
-&trans  &kp N1     &kp N2  &kp N3  &kp N4  &kp N5                                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &none      &kp Q   &kp W   &kp E   &kp R   &kp I                     &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LSHFT  &kp A   &kp S   &kp D   &kp F   &kp M                     &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &none      &kp Z   &kp X   &kp C   &kp V   &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans     &trans  &trans  &mo 4           &trans  &trans    &trans  &trans          &trans  &trans  &trans  &trans  &trans
+&trans  &kp N1     &kp N2  &kp N3  &kp N4  &kp N5                                     &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &none      &kp Q   &kp W   &kp E   &kp R   &kp I                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LSHFT  &kp A   &kp S   &kp D   &kp F   &kp M                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &none      &kp Z   &kp X   &kp C   &kp V   &trans  &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans     &trans  &trans  &mo 4           &trans  &kp RET    &trans  &trans          &trans  &trans  &trans  &trans  &trans
             >;
         };
 
         BDO {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                                       &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0                                       &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &kp T   &kp Y   &kp U   &kp I   &kp O   &kp P                        &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &kp G   &kp H   &kp J   &kp K   &kp L   &kp COMMA                    &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &none   &none   &kp B   &kp N   &kp M   &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
