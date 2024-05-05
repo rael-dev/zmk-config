@@ -179,7 +179,7 @@
 
         combo_to_wasd {
             bindings = <&to 3>;
-            key-positions = <32 33>;
+            key-positions = <17 20>;
             timeout-ms = <200>;
             layers = <0 1 2>;
         };
