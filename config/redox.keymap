@@ -142,27 +142,6 @@
     combos {
         compatible = "zmk,combos";
 
-        combo_equals {
-            timeout-ms = <50>;
-            key-positions = <61 64>;
-            bindings = <&kp EQUAL>;
-            layers = <0 1>;
-        };
-
-        combo_switch_to_nums {
-            timeout-ms = <50>;
-            key-positions = <30 35>;
-            bindings = <&to 1>;
-            layers = <0>;
-        };
-
-        combo_switch_to_base {
-            timeout-ms = <50>;
-            key-positions = <35 30>;
-            bindings = <&to 0>;
-            layers = <1>;
-        };
-
         combo_escape {
             bindings = <&kp ESCAPE>;
             key-positions = <62 63>;
@@ -172,23 +151,16 @@
 
         combo_enter {
             bindings = <&kp ENTER>;
-            key-positions = <61 30>;
+            key-positions = <61 64>;
             timeout-ms = <50>;
             layers = <0 1>;
         };
 
-        combo_to_wasd {
-            bindings = <&to 3>;
-            key-positions = <17 20>;
-            timeout-ms = <200>;
-            layers = <0 1 2>;
-        };
-
-        combo_from_wasd {
-            bindings = <&to 0>;
-            key-positions = <18 32>;
-            timeout-ms = <200>;
-            layers = <3>;
+        combo_enter_1h {
+            bindings = <&kp ENTER>;
+            key-positions = <61 30>;
+            timeout-ms = <50>;
+            layers = <0 1>;
         };
     };
 
@@ -198,40 +170,6 @@
             #binding-cells = <0>;
             tapping-term-ms = <350>;
             bindings = <&kp LC(F5)>, <&kp LA(F5)>;
-        };
-
-        td_left_bracket: tap_dance_left_bracket {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <350>;
-            bindings =
-                <&kp LEFT_PARENTHESIS>,
-                <&kp LEFT_BRACE>,
-                <&kp LEFT_BRACKET>;
-        };
-
-        td_right_bracket: tap_dance_right_bracket {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <350>;
-            bindings =
-                <&kp RIGHT_PARENTHESIS>,
-                <&kp RIGHT_BRACE>,
-                <&kp RIGHT_BRACKET>;
-        };
-
-        td_quotes: tap_dance_quotes {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <350>;
-            bindings = <&kp SINGLE_QUOTE>, <&kp DOUBLE_QUOTES>;
-        };
-
-        td_pointer: tap_dance_pointer {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <350>;
-            bindings = <&kp ASTERISK>, <&macro_pointer>;
         };
     };
 
@@ -247,15 +185,15 @@
             // | CRTL  | ALT | GUI | LOWER |    GUI    | LOWER | SPACE   | --- | DEL  | SPACE |     RAISE     | LEFT  | DOWN | UP |   RIGHT   |
 
             bindings = <
-&kp ESC           &kp F1    &kp F2    &kp F3  &kp F4  &kp F5                                                                  &kp F6  &kp F7  &kp F8      &kp F9         &kp F10   &kp DELETE
-&kp TAB           &kp Q     &kp W     &kp E   &kp R   &kp T   &kp F14                                      &kp F15            &kp Y   &kp U   &kp I       &kp O          &kp P     &kp MINUS
-&kp CAPS          &kp A     &kp S     &kp D   &kp F   &kp G   &td_left_bracket                             &td_right_bracket  &kp H   &kp J   &kp K       &kp L          &kp SEMI  &kp ENTER
-&sk LEFT_SHIFT    &kp Z     &kp X     &kp C   &kp V   &kp B   &kp DELETE        &none         &kp C_PP     &kp F16            &kp N   &kp M   &kp COMMA   &kp DOT        &kp FSLH  &kp RIGHT_SHIFT
-&kp LEFT_CONTROL  &kp LALT  &kp LWIN  &none   &mo 2           &kp SPACE         &td_quotes    &td_pointer  &kp BACKSPACE              &mo 2   &kp DOLLAR  &kp BACKSLASH  &kp RALT  &kp RCTRL
+&kp ESC           &kp F1    &kp F2    &kp F3  &kp F4  &kp F5                                                &kp F8  &kp F9  &kp F10    &kp F11  &kp F12   &kp DELETE
+&kp TAB           &kp Q     &kp W     &kp E   &kp R   &kp T   &kp F6                         &kp F7         &kp Y   &kp U   &kp I      &kp O    &kp P     &kp MINUS
+&kp CAPS          &kp A     &kp S     &kp D   &kp F   &kp G   &kp F14                        &kp F15        &kp H   &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
+&sk LEFT_SHIFT    &kp Z     &kp X     &kp C   &kp V   &kp B   &kp DELETE  &none    &kp C_PP  &kp F16        &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp RIGHT_SHIFT
+&kp LEFT_CONTROL  &kp LALT  &kp LWIN  &none   &mo 1           &kp SPACE   &mo 3    &mo 3     &kp BACKSPACE          &mo 2   &none      &none    &kp RALT  &kp RCTRL
             >;
         };
 
-        NUMBERS+SYMBOLS {
+        NUMBERS {
             // ----------------------------------------------------------------------------------------------------------------------------
             // | ESC   |  1  |  2  |   3   |  4  |  5  |                   ---                |  6   |  7   |  8   |  9   |  0    |  DEL  |
             // | ESC   |  !  |  @  |   #   |  $  |  %  |   (   |           ---        |  )    |  ^   |  &   |  *   |  (   |  )    |  DEL  |
@@ -264,11 +202,21 @@
             // | CRTL  | ALT | GUI | LOWER |    GUI    | LOWER | SPACE   | --- | DEL  | SPACE |    RAISE    | LEFT | DOWN | UP    | RIGHT |
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                                    &trans  &trans  &trans  &trans        &trans    &trans
-&trans  &none   &none   &none   &none   &none   &trans                    &trans  &none   &none   &none   &kp ASTERISK  &kp PLUS  &trans
-&trans  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &trans                    &trans  &kp N6  &kp N7  &kp N8  &kp N9        &kp N0    &trans
-&trans  &none   &none   &none   &none   &none   &trans  &trans    &trans  &trans  &none   &none   &trans  &trans        &trans    &trans
-&trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans  &trans          &trans  &trans  &trans        &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                    &trans        &trans   &trans  &trans  &trans     &trans
+&trans  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5  &trans                    &trans  &kp N6        &kp N7   &kp N8  &kp N9  &kp N0     &trans
+&trans  &none   &none   &none   &none   &none   &trans                    &trans  &kp ASTERISK  &kp N4   &kp N5  &kp N6  &kp PLUS   &kp EQUAL
+&trans  &none   &none   &none   &none   &none   &trans  &trans    &trans  &trans  &kp FSLH      &kp N1   &kp N2  &kp N3  &kp MINUS  &trans
+&trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans  &trans                &kp DOT  &kp N0  &trans  &trans     &trans
+            >;
+        };
+
+        SYMBOLS {
+            bindings = <
+&trans  &trans           &trans     &trans     &trans          &trans                                         &trans     &trans           &trans        &trans                &trans                 &trans
+&trans  &kp EXCLAMATION  &kp AT     &kp POUND  &kp DOLLAR      &kp PERCENT  &trans                    &trans  &kp CARET  &kp AMPERSAND    &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
+&trans  &kp TILDE        &kp GRAVE  &kp FSLH   &kp LEFT_BRACE  &kp LBKT     &trans                    &trans  &kp RBKT   &kp RIGHT_BRACE  &kp BSLH      &kp MINUS             &kp PLUS               &kp PIPE
+&trans  &trans           &trans     &trans     &trans          &trans       &trans  &trans    &trans  &trans  &trans     &trans           &trans        &kp UNDERSCORE        &kp EQUAL              &trans
+&trans  &trans           &trans     &trans     &trans                       &trans  &trans    &trans  &trans             &trans           &trans        &trans                &trans                 &trans
             >;
         };
 
@@ -286,26 +234,6 @@
 &trans  &kp LC(LS(F))  &macro_find_member  &kp LC(A)              &kp LC(C)       &kp LC(V)         &trans                    &trans  &kp LEFT          &kp DOWN  &kp UP  &kp RIGHT          &macro_context_actions  &trans
 &trans  &kp LC(Z)      &none               &macro_rename          &macro_comment  &macro_uncomment  &trans  &trans    &trans  &trans  &kp LS(LC(LEFT))  &none     &none   &kp LC(LS(RIGHT))  &none                   &trans
 &trans  &trans         &trans              &trans                 &trans                            &trans  &none     &trans  &trans                    &trans    &trans  &trans             &trans                  &trans
-            >;
-        };
-
-        WASD {
-            bindings = <
-&trans  &kp N1     &kp N2  &kp N3  &kp N4  &kp N5                                     &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &none      &kp Q   &kp W   &kp E   &kp R   &kp I                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LSHFT  &kp A   &kp S   &kp D   &kp F   &kp M                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &none      &kp Z   &kp X   &kp C   &kp V   &trans  &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans     &trans  &trans  &mo 4           &trans  &kp RET    &trans  &trans          &trans  &trans  &trans  &trans  &trans
-            >;
-        };
-
-        BDO {
-            bindings = <
-&trans  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0                                       &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp T   &kp Y   &kp U   &kp I   &kp O   &kp P                        &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp G   &kp H   &kp J   &kp K   &kp L   &kp COMMA                    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &none   &none   &kp B   &kp N   &kp M   &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans          &trans     &trans    &trans  &trans          &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
