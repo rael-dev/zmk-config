@@ -71,23 +71,7 @@
         macro_rename: macro_rename {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(R)>, <&macro_tap>, <&kp R>;
-        };
-
-        macro_pointer: macro_pointer {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp MINUS>,
-                <&macro_tap>,
-                <&kp GREATER_THAN>;
-        };
-
-        macro_comment: macro_comment {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(K)>, <&macro_tap>, <&kp C>;
+            bindings = <&macro_tap>, <&kp LC(R)>, <&macro_tap>, <&kp LC(R)>;
         };
 
         macro_uncomment: macro_uncomment {
@@ -96,7 +80,7 @@
             bindings = <&macro_tap>, <&kp LC(K)>, <&macro_tap>, <&kp LC(U)>;
         };
 
-        macro_cpp_header_hop: cpp_header_hop {
+        macro_rider_cpp_header_hop: cpp_header_hop {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -110,7 +94,7 @@
             label = "CPP_HEADER_HOP";
         };
 
-        macro_find_member: macro_find_member {
+        macro_rider_find_member: macro_rider_find_member {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -121,21 +105,31 @@
                 <&macro_release>,
                 <&kp LEFT_ALT>;
 
-            label = "MACRO_FIND_MEMBER";
+            label = "MACRO_RIDER_FIND_MEMBER";
         };
 
         macro_context_actions: macro_context_actions {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LEFT_ALT>,
-                <&macro_tap>,
-                <&kp ENTER>,
-                <&macro_release>,
-                <&kp LEFT_ALT>;
+            bindings = <&macro_tap>, <&kp LA(ENTER)>;
 
             label = "MACRO_CONTEXT_ACTIONS";
+        };
+
+        macro_comment: macro_comment {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp LC(K)>, <&macro_tap>, <&kp LC(C)>;
+
+            label = "MACRO_COMMENT";
+        };
+
+        macro_vs_cpp_header_hop: macro_vs_cpp_header_hop {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp LC(K)>, <&macro_tap>, <&kp LC(O)>;
+
+            label = "MACRO_VS_CPP_HEADER_HOP";
         };
     };
 
@@ -229,11 +223,11 @@
             // | CRTL  | ALT   |  GUI     |   LOWER   |      GUI        | LOWER | SPACE   | --- | DEL  | SPACE |   RAISE   | LEFT | DOWN | UP  |   RIGHT    |
 
             bindings = <
-&trans  &trans         &trans              &trans                 &trans          &trans                                              &trans            &trans    &trans  &trans             &trans                  &trans
-&trans  &none          &none               &macro_cpp_header_hop  &kp LC(LS(B))   &td_run           &trans                    &trans  &kp LC(LEFT)      &none     &none   &kp LC(RIGHT)      &none                   &trans
-&trans  &kp LC(LS(F))  &macro_find_member  &kp LC(A)              &kp LC(C)       &kp LC(V)         &trans                    &trans  &kp LEFT          &kp DOWN  &kp UP  &kp RIGHT          &macro_context_actions  &trans
-&trans  &kp LC(Z)      &none               &macro_rename          &macro_comment  &macro_uncomment  &trans  &trans    &trans  &trans  &kp LS(LC(LEFT))  &none     &none   &kp LC(LS(RIGHT))  &none                   &trans
-&trans  &trans         &trans              &trans                 &trans                            &trans  &none     &trans  &trans                    &trans    &trans  &trans             &trans                  &trans
+&trans  &trans         &trans                    &trans                       &trans          &trans                                              &trans            &trans    &trans  &trans             &trans                  &trans
+&trans  &none          &none                     &macro_rider_cpp_header_hop  &kp LC(LS(B))   &td_run           &trans                    &trans  &kp LC(LEFT)      &none     &none   &kp LC(RIGHT)      &none                   &trans
+&trans  &kp LC(LS(F))  &macro_rider_find_member  &kp LC(A)                    &kp LC(C)       &kp LC(V)         &trans                    &trans  &kp LEFT          &kp DOWN  &kp UP  &kp RIGHT          &macro_context_actions  &trans
+&trans  &kp LC(Z)      &none                     &macro_rename                &macro_comment  &macro_uncomment  &trans  &trans    &trans  &trans  &kp LS(LC(LEFT))  &none     &none   &kp LC(LS(RIGHT))  &none                   &trans
+&trans  &trans         &trans                    &trans                       &trans                            &trans  &none     &trans  &trans                    &trans    &trans  &trans             &trans                  &trans
             >;
         };
     };
