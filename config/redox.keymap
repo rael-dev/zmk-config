@@ -216,11 +216,11 @@
             // | CRTL  | ALT   |  GUI     |   LOWER   |      GUI        | LOWER | SPACE   | --- | DEL  | SPACE |   RAISE   | LEFT | DOWN | UP  |   RIGHT    |
 
             bindings = <
-&trans  &trans         &trans                    &trans                       &trans          &trans                                              &trans        &trans    &trans  &trans         &trans                  &trans
-&trans  &none          &none                     &macro_rider_cpp_header_hop  &kp LC(LS(B))   &td_run           &trans                    &trans  &kp LC(LEFT)  &none     &none   &kp LC(RIGHT)  &none                   &trans
-&trans  &kp LC(LS(F))  &macro_rider_find_member  &kp LC(A)                    &kp LC(C)       &kp LC(V)         &trans                    &trans  &kp LEFT      &kp DOWN  &kp UP  &kp RIGHT      &macro_context_actions  &trans
-&trans  &kp LC(Z)      &none                     &macro_rename                &macro_comment  &macro_uncomment  &trans  &trans    &trans  &trans  &kp HOME      &none     &none   &kp END        &none                   &trans
-&trans  &trans         &trans                    &trans                       &trans                            &trans  &none     &trans  &trans                &trans    &trans  &trans         &trans                  &trans
+&trans  &trans         &trans                    &trans                    &trans          &trans                                              &trans        &trans    &trans  &trans         &trans                  &trans
+&trans  &none          &none                     &macro_vs_cpp_header_hop  &kp LC(LS(B))   &td_run           &trans                    &trans  &kp LC(LEFT)  &none     &none   &kp LC(RIGHT)  &none                   &trans
+&trans  &kp LC(LS(F))  &macro_rider_find_member  &kp LC(A)                 &kp LC(C)       &kp LC(V)         &trans                    &trans  &kp LEFT      &kp DOWN  &kp UP  &kp RIGHT      &macro_context_actions  &trans
+&trans  &kp LC(Z)      &none                     &macro_rename             &macro_comment  &macro_uncomment  &trans  &trans    &trans  &trans  &kp HOME      &none     &none   &kp END        &none                   &trans
+&trans  &trans         &trans                    &trans                    &trans                            &trans  &none     &trans  &trans                &trans    &trans  &trans         &trans                  &trans
             >;
         };
     };
